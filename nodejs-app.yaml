@@ -8,7 +8,11 @@ spec:
   source:
     repoURL: https://github.com/rajnish-init/helm-charts
     targetRevision: main
-    path: nodejs-app
+    path: .
   destination:
     server: https://kubernetes.default.svc
     namespace: nodejs
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
