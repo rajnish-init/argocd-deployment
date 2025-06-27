@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nodejs-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rajnish-init/helm-charts
+    targetRevision: main
+    path: nodejs-app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nodejs
